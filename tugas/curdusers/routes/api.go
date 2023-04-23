@@ -15,7 +15,10 @@ func New() *echo.Echo {
 
 	// Auth
 	e.POST("/login", controllers.LoginUserController)
-
+	e.GET("/users", controllers.GetUsersController)
+	e.GET("/users/:id", controllers.GetUserController)
+	e.POST("/users", controllers.CreateUserController)
+	
 	// blogs routes
 	e.POST("/blogs", controllers.CreateBlogController)
 	e.GET("/blogs/:id", controllers.GetBlogController)
@@ -28,9 +31,7 @@ func New() *echo.Echo {
 
 	eJwt := e.Group("/jwt")
 	eJwt.Use(mid.JWT([]byte(constans.SECRET_JWT)))
-	eJwt.GET("/users", controllers.GetUsersController)
-	e.GET("/users/:id", controllers.GetUserController)
-	eJwt.POST("/users", controllers.CreateUserController)
+	
 	eJwt.DELETE("/users/:id", controllers.DeleteUserController)
 	eJwt.PUT("/users/:id", controllers.UpdateUserController)
 
