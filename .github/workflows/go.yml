@@ -15,6 +15,6 @@ jobs:
         port: 22
         script: |
           export PATH=$PATH:/usr/local/go/bin
-          cd app/go-gorm/
+          cd golang-ec2/
           git pull
           go run tugas/curdusers/main.go
