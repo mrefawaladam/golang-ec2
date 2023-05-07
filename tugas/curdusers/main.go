@@ -10,5 +10,5 @@ func main() {
 
 	e := routes.New()
 
-	e.Logger.Fatal(e.Start(":8081"))
+	e.Logger.Fatal(e.Start(":8080"))
 }
